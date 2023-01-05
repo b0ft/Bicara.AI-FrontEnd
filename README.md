@@ -8,7 +8,16 @@
 
 [**Sprint Backlogs**](https://b0ft.notion.site/b0ft/c389b2a9568c4419b87fca046d5e9ff3?v=3dc2e43a251145fbbe7866e6d9a54e72)
 
-## Members :
+[**Dokumentasi Interface Web Service API Landing Page**](https://documenter.getpostman.com/view/19255819/2s8YmSqze2)
+
+[**Dokumentasi Interface Web Service API Home Page**](https://documenter.getpostman.com/view/24216905/2s8YmSqzVE)
+
+## Team 1 Members :
 - Aldy Syachranie 1313621012
 - Kenya Bhanuwati Pranoto 1313621019
-- Raden Roro Ziva Azzahrah Khalila
+- Raden Roro Ziva Azzahrah Khalila 1313621034
+
+## Team 2 Members :
+- Annisa Sekar Rini Ayu 1313621002
+- Fathan Bainal Kaffi 1313621037
+- Salwa Tsabitah 1313621042
