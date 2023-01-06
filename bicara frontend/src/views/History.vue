@@ -350,6 +350,7 @@ export default defineComponent({
             date: "",
             isModalOpen: false,
             isLoading: false,
+            size: 0,
         };
     },
     computed: {
@@ -367,7 +368,7 @@ export default defineComponent({
             this.isModalOpen = isModalOpen;
         },
         moment: function (date: Date) {
-            return moment(date).subtract(7, "hours").format("DD MMM YYYY");
+            return moment(date).subtract(7, "hours").format("HH:mm DD MMM YYYY");
             // return moment(date).format("hh:mm / DD MMM");
             // 11:11/12 Nov
         },
@@ -399,9 +400,15 @@ export default defineComponent({
         onChange(e: { target: { files: any } }) {
             console.log(e.target.files[0]);
             this.file = e.target.files[0];
-            (
+            this.size = e.target.files[0].size;
+            if (this.size > 110000000) {
+                alert("File size is too large");
+                return;
+            }
+            else{(
                 document.getElementById("upload_button") as HTMLInputElement
             ).disabled = false;
+            }
         },
         dragover(event: {
             preventDefault: () => void;

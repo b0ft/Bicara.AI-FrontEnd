@@ -29,9 +29,6 @@
           <ion-img src="assets/img/hero.svg"></ion-img>
         </div>
       </div>
-      <div class="for-portrait">
-          <ion-img class="hero-img" src="assets/img/hero.svg"></ion-img>
-        </div>
 
       <div class="one">
         <!-- ganti icon-->
@@ -74,7 +71,7 @@
         <ion-slides class="for-portrait">
           <ion-slide>
             <ion-card class="card-one">
-              <ion-img class="big-icon" src="assets/icon/filler.svg"></ion-img>
+              <ion-img class="small-icon" src="assets/icon/filler.svg"></ion-img>
               <ion-card-title>Filler words detection</ion-card-title>
               <ion-card-content>
                 Lorem ipsum dolor sit amet.
@@ -126,43 +123,124 @@
         <ion-row class="for-landscape">
           <ion-col size="12" size-lg="2"></ion-col>
           <ion-col size="6" size-lg="2">
-            <p class="card-desc">Step 1</p>
             <ion-card class="card-three">
-              create account with your name and email adress
+              <ion-card-header>
+                <ion-img src="assets/icon/create-account.svg"></ion-img>
+              </ion-card-header>
+              <ion-card-content>Create account with your name and email adress</ion-card-content>
             </ion-card>
           </ion-col>
           <ion-col size="6" size-lg="2">
-            <p class="card-desc">Step 2</p>
             <ion-card class="card-three">
-              <ion-card-content>upload your video</ion-card-content></ion-card>
+              <ion-card-header>
+                <ion-img src="assets/icon/download.svg"></ion-img>
+              </ion-card-header>
+              <ion-card-content>Upload your video</ion-card-content></ion-card>
           </ion-col>
           <ion-col size="6" size-lg="2">
-            <p class="card-desc">Step 3</p>
-            <ion-card class="card-three">our AI will work to analyze your video</ion-card>            
+            <ion-card class="card-three">
+              <ion-card-header>
+                <ion-img src="assets/icon/analyze.svg"></ion-img>
+              </ion-card-header>
+              <ion-card-content>Our AI will work to analyze your video</ion-card-content></ion-card>            
           </ion-col>
           <ion-col size="6" size-lg="2">
-            <p class="card-desc">Step 4</p>
-            <ion-card class="card-three">receive notification on your email when your video is analyzed</ion-card>
+            <ion-card class="card-three">
+              <ion-card-header>
+                <ion-img src="assets/icon/email-notification.svg"></ion-img>
+              </ion-card-header><ion-card-content>Receive notification on your email when your video is analyzed</ion-card-content></ion-card>
           </ion-col>
           <ion-col size="12" size-lg="2"></ion-col>
         </ion-row>
 
         <ion-slides class="for-portrait">
+          <!--step 1-->
           <ion-slide size="6" size-lg="2">
-            <p class="card-desc">Step 1</p>
-            <ion-card class="card-three"></ion-card>
+            <div class="steps">
+              <ion-row>
+                <ion-col size="4"></ion-col>
+                <ion-col size="4" class="num-icon">
+                  <ion-img src="assets/img/step1.svg"></ion-img>
+                </ion-col>
+                <ion-col size="4"></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12"> <!--content-->
+                  <ion-card class="card-three">
+                    <ion-card-header>
+                      <ion-img src="assets/icon/create-account.svg"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content>Create account with your name and email adress</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </div>
           </ion-slide>
+          <!--step 2-->
           <ion-slide size="6" size-lg="2">
-            <p class="card-desc">Step 2</p>
-            <ion-card class="card-three"></ion-card>
+            <div>
+              <ion-row>
+                <ion-col size="4"></ion-col>
+                <ion-col size="4" class="num-icon">
+                  <ion-img src="assets/img/step2.svg"></ion-img>
+                </ion-col>
+                <ion-col size="4"></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12"> <!--content-->
+                  <ion-card class="card-three">
+                    <ion-card-header>
+                      <ion-img src="assets/icon/download.svg"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content>Upload Your Video</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </div>           
           </ion-slide>
+          <!--step 3-->
           <ion-slide size="6" size-lg="2">
-            <p class="card-desc">Step 3</p>
-            <ion-card class="card-three"></ion-card>            
+            <div class="steps">
+              <ion-row>
+                <ion-col size="4"></ion-col>
+                <ion-col size="4" class="num-icon">
+                  <ion-img src="assets/img/step3.svg"></ion-img>
+                </ion-col>
+                <ion-col size="4"></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12"> <!--content-->
+                  <ion-card class="card-three">
+                    <ion-card-header>
+                      <ion-img src="assets/icon/analyze.svg"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content>Our AI Will Work to Analyze Your Video</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </div>
           </ion-slide>
+          <!--step 4-->
           <ion-slide size="6" size-lg="2">
-            <p class="card-desc">Step 4</p>
-            <ion-card class="card-three"></ion-card>
+            <div class="steps">
+              <ion-row>
+                <ion-col size="4"></ion-col>
+                <ion-col size="4" class="num-icon">
+                  <ion-img src="assets/img/step4.svg"></ion-img>
+                </ion-col>
+                <ion-col size="4"></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size="12"> <!--content-->
+                  <ion-card class="card-three">
+                    <ion-card-header>
+                      <ion-img src="assets/icon/email-notification.svg"></ion-img>
+                    </ion-card-header>
+                    <ion-card-content>Receive Feedback and Recommendation by Expert</ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+            </div>
           </ion-slide>
         </ion-slides>
 
@@ -268,6 +346,7 @@ export default defineComponent({
   font-weight: 700;
   font-size: 6vh;
   color: black;
+  word-wrap: normal;
 }
 .title-top2 {
   margin-top: -3vh;
@@ -275,6 +354,7 @@ export default defineComponent({
   font-weight: 700;
   font-size: 6vh;
   color: #3F54D1;
+  word-wrap: normal;
 }
 
 .half {
@@ -384,14 +464,14 @@ export default defineComponent({
 
 .card-one {
   background-color: white;
-  width: 30vw;
-  height: 20vw;
+  width: 25vw;
+  height: 15vw;
   border-radius: 40px;
   margin: 3vw;
 }
 
 .card-one ion-img {
-  margin-top: 12vh;
+  margin-top: 7vh;
   margin-bottom: 1.5vh;
   height: 5vh;
   align-content: center;
@@ -399,7 +479,7 @@ export default defineComponent({
 
 .small-icon {
   height: 6vh!important;
-  margin-top: 11vh!important;
+  margin-top: 6vh!important;
 }
 
 .card-one ion-card-title {
@@ -408,7 +488,6 @@ export default defineComponent({
   font-weight: 700;
   text-align: center;
   font-size: 2vw;
-  margin-top: 0.75rem;
 }
 
 .card-one ion-card-content {
@@ -417,7 +496,6 @@ export default defineComponent({
   font-weight: 700;
   text-align: center;
   font-size: 1.25vw;
-  margin-top: 0.5rem;
 }
 
 .two {
@@ -484,7 +562,7 @@ export default defineComponent({
 
  .three ion-text {
   font-family: 'Inter', sans-serif;
-  font-size: 5vh;
+  font-size: 6vh;
   font-weight: 700;
   color: black;
  }
@@ -513,12 +591,27 @@ export default defineComponent({
  }
 
  .card-three {
-  background-color: #c8d6da;
-  width: 8vw;
-  height: 8vw;
-  border-radius: 3vw;
+  background-color: white;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 2vw;
+  border-style: solid;
+  border-color: #5280e2;
+  border-width: 5px;
+  box-shadow: none;
   align-self: center;
+  margin-top: 30px;
   margin-bottom: 10vh;
+ }
+
+ .card-three ion-img {
+  text-align: center;
+  height: 3vw;
+ }
+ .card-three ion-card-content {
+  text-align: center;
+  font-size: 1vw;
+  color: #151c43;
  }
 
  .kucing {
@@ -587,11 +680,12 @@ export default defineComponent({
 .top-gradient {
   background: linear-gradient(180deg, rgba(21,205,203,1) -43.28%, rgba(243,244,248,1) 98%);
   font-family: 'Inter', sans-serif;
-  height: 100vh;
+  height: 55vh;
 }
 .hero-img {
-  height: 30vh;
-  margin-top: -10vh;
+  height: 50vh;
+  margin-top: 100vh;
+  padding-top: 10vh;
 }
 .top-content {
   padding-left: 5vw;
@@ -625,19 +719,18 @@ export default defineComponent({
 }
 
 .email {
-  width: 50vw;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
 }
 .email-regist {
   display: flex;
-  width: 30vw;
-  height: 7vh;
+  width: 300px;
+  height: 40px;
   box-shadow: none;
   background-color: white;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  border-top-right: 0px;
-  border-bottom-right: 0px;
-  margin-top: 2vh;
+  border-radius: 30px;
+  margin-top: 10px;
   padding-left: 2.7vh;
   margin-left: 0px;
   font-size: 1.25rem;
@@ -652,8 +745,8 @@ export default defineComponent({
 
 .email-input {
   margin : 0px;
-  height: 7vh;
-  font-size: 2.7vh;
+  height: 40px;
+  font-size: 16px;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   color: black;
@@ -662,15 +755,15 @@ export default defineComponent({
 
 .notify {
   position: absolute;
-  margin-top: -0.1vh;
+  margin-top: 0px;
   right:-3vw;
-  height: 7vh;
-  width: 10vw;
-  font-size: 2.5vh;
+  height: 40px;
+  width: 80px;
+  font-size: 12px;
   font-family: 'Inter';
   text-transform: none;
   --border-radius: 30px;
-  --line-height: 7vh;
+  --line-height: 40px;
   --box-shadow: none;
 }
 .one {
@@ -708,27 +801,38 @@ export default defineComponent({
 
 .card-one {
   background-color: white;
-  width: 105vw;
+  width: 210px;
+  height: 210px;
   border-radius: 25px;
+  padding-top: 30px;
 }
 
 .big-icon {
-  height: 6vw;
+  height: 30px;
+  margin-top: 10px;
+}
+
+.small-icon {
+  height: 35px;
+  margin-top: 5px;
 }
 .card-one ion-card-title {
-  color: black;
+  color: rgb(0, 0, 0);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
   text-align: center;
-  font-size: 4vw;
-  margin-top: 0.75rem;
+  font-size: 20px;
+  margin-top: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: -5px;
 }
 .card-one ion-card-content {
   color: rgb(28, 28, 28);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
-  font-size: 1.5vh;
+  font-size: 18px;
 }
 
 .two {
@@ -756,7 +860,7 @@ export default defineComponent({
  }
 
  .three {
-  height: 55vh;
+  height: 60vh;
  }
 
  .three-content {
@@ -804,6 +908,10 @@ export default defineComponent({
   display:contents;
  }
 
+.three ion-slides {
+  margin-top: -25px;
+}
+
  .card-desc {
   font-size: 1.5rem;
   font-weight: 700;
@@ -812,11 +920,34 @@ export default defineComponent({
  }
 
  .card-three {
-  background-color: #c8d6da;
-  width: 5.625rem;
-  height: 10vh;
-  border-radius: 1.5625rem;
+  width: 140px;
+  height: 140px;
+  border-radius: 15px;
   align-self: center;
+  box-shadow: none;
+  background-color: white;
+  border-color: #5280e2;
+  border-style: solid
+ }
+
+ .num-icon ion-img {
+  height: 40px;
+ }
+
+
+ .card-three ion-card-header {
+  display: flex;
+  justify-content: center;
+  margin: -5px;
+ }
+ .card-three ion-img {
+  text-align: center;
+  height: 40px;
+ }
+ .card-three ion-card-content {
+  text-align: center;
+  font-size: 12px;
+  color: #151c43;
  }
 
  .kucing {
@@ -883,7 +1014,7 @@ export default defineComponent({
 
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 576px) {
   .bicara-ai-top {
   height: 6vh;
 }
@@ -1023,27 +1154,32 @@ export default defineComponent({
 
 .card-one {
   background-color: white;
-  width: 35vw;
-  height: 25vh;
+  width: 300px;
+  height: 250px;
   border-radius: 25px;
 }
 
 .big-icon {
-  margin-top: 5.5vh;
-  height: 6vw;
+  margin-top: 40px;
+  height: 50px;
+}
+
+.small-icon {
+  margin-top: 35px;
+  height: 45px;
 }
 .card-one ion-card-title {
   color: black;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 700;
   text-align: center;
-  font-size: 3.5vw;
+  font-size: 3vh;
   margin-top: 0.75rem;
 }
 .card-one ion-card-content {
   color: black;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   text-align: center;
   font-size: 2.5vw;
 }
@@ -1077,7 +1213,7 @@ export default defineComponent({
  }
 
  .three {
-  height: 55vh;
+  height: 60vh;
  }
 
  .three-content {
@@ -1121,8 +1257,8 @@ export default defineComponent({
  }
 
  .three ion-slide ion-slides {
-  flex-direction: row;
-  display:contents;
+  flex-direction: column;
+  display:flex;
  }
 
  .card-desc {
@@ -1132,12 +1268,33 @@ export default defineComponent({
   text-align: center;
  }
 
+ .steps ion-img {
+  width: 60px;
+ }
+
  .card-three {
-  background-color: #c8d6da;
-  width: 5.625rem;
-  height: 10vh;
-  border-radius: 1.5625rem;
+  background-color: white;
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
   align-self: center;
+  box-shadow: none;
+  border-color: #5280e2;
+  border-style: solid  
+ }
+
+ .card-three ion-card-header {
+  display: flex;
+  justify-content: center;
+ }
+
+ .card-three ion-img{
+  height: 65px;
+ }
+ .card-three ion-card-content {
+  text-align: center;
+  font-size: 18px;
+  color: #151c43;
  }
 
  .kucing {

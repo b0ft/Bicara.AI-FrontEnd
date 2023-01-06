@@ -214,33 +214,6 @@
                             <ion-card>
                                 <ion-card-content>
                                     {{ result.transcript }}
-                                    <!-- Lorem ipsum dolor sit amet, consectetuer
-                                    adipiscing elit. Aenean commodo ligula eget
-                                    dolor. Aenean massa.
-                                    <br /><br />
-                                    Donec pede justo, fringilla vel, aliquet
-                                    nec, vulputate ummm eget, arcu.
-                                    <br /><br />
-                                    In enim justo, rhoncus ut, imperdiet a,
-                                    venenatis vitae, justo. Nullam dictum felis
-                                    eu pede mollis pretium. Integer tincidunt.
-                                    Hmmmm Cras dapibus. Vivamus elementum semper
-                                    nisi. Aenean vulputate eleifend tellus.
-                                    <br /><br />
-                                    Aenean leo ligula, porttitor eu, consequat
-                                    vitae, eleifend ac, enim. Aliquam jadi lorem
-                                    ante, dapibus in, viverra quis, feugiat a,
-                                    tellus.
-                                    <br /><br />
-                                    Phasellus viverra nulla ut metus varius
-                                    laoreet. Quisque rutrum. Aenean umm
-                                    imperdiet. Etiam ultricies nisi vel augue.
-                                    Curabitur ullamcorper ultricies nisi. Nam
-                                    eget dui. Etiam rhoncus.
-                                    <br /><br />
-                                    Maecenas tempus, tellus eget condimentum
-                                    rhoncus, sem quam semper libero, sit amet
-                                    adipiscing sem neque sed ipsum. -->
                                 </ion-card-content>
                             </ion-card>
                         </div>
@@ -372,6 +345,8 @@ export default defineComponent({
                 pacing: 0,
                 transcript: "",
             },
+            size: 0,
+
         };
     },
     computed: {
@@ -415,9 +390,15 @@ export default defineComponent({
         onChange(e: { target: { files: any } }) {
             console.log(e.target.files[0]);
             this.file = e.target.files[0];
-            (
+            this.size = e.target.files[0].size;
+            if (this.size > 110000000) {
+                alert("File size is too large");
+                return;
+            }
+            else{(
                 document.getElementById("upload_button") as HTMLInputElement
             ).disabled = false;
+            }
         },
         dragover(event: {
             preventDefault: () => void;

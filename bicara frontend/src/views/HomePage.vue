@@ -58,7 +58,7 @@
                                 <ion-text>Welcome to Bicara.ai</ion-text>
                             </div>
                             <ion-card>
-                            <Form>
+                            <Form @submit="signUpMethod">
                                 <ion-text>First name<br /></ion-text>
                                 <Field v-model="firstName" name="First Name" v-slot="{field}" 
                                   rules="required|alpha">
@@ -118,7 +118,8 @@
                                 ></ion-input>
                                 </Field>
                                 <ErrorMessage name="Confirm Password" class="error" /><br>
-                                <ion-button @click.prevent="signUpMethod"
+                                <ion-text class="error">{{ errorSignUp }}</ion-text><br>
+                                <ion-button type="submit" 
                                     >Sign up</ion-button
                                 >
                               </form>
@@ -146,10 +147,7 @@
                     >
                     <ion-row class="half">
                         <ion-col size="12" class="desc-top"
-                            >Bicara.ai is an education platform. Bicara.ai aim
-                            to improve indviduals comunication skills with
-                            judgement free feedback from our AI-powered speech
-                            coach.</ion-col
+                            >Bicara AI is an AI-based education platform which aims to democratise public speaking learning anywhere.</ion-col
                         >
                     </ion-row>
                     <ion-row>
@@ -299,7 +297,7 @@
                 <div>
                     <div class="video">
                         <iframe
-                            src="https://www.youtube.com/embed/fpI8Jx65W18"
+                            src="https://youtube.com/embed/ZwFzrJaydo8"
                             title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -474,6 +472,7 @@ export default defineComponent({
             isSignInOpen: false,
             isSignUpOpen: false,
             errorLogin: "",
+            errorSignUp: "",
         };
     },
     setup() {
@@ -519,6 +518,13 @@ export default defineComponent({
                 .post("http://127.0.0.1:5000/signup",data)
                 .then((res) => {
                     console.log(res);
+                    if (res.data.message == "User created successfully") {
+                        alert("User created");
+                        window.location.href = "/homepage";
+                        
+                    } else {
+                        this.errorSignUp = res.data.message;
+                    } 
                 })
                 .catch((err) => {
                     console.log(err);
@@ -580,7 +586,6 @@ export default defineComponent({
     color: red;
     font-size: 1.8vh;
     font-family: 'Inter', sans-serif;
-    padding-left: 1vh;
   }
   @media (min-width: 992px) {
     .bicara-ai-top {
