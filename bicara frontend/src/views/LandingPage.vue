@@ -104,7 +104,9 @@
         <div class="num-back"><ion-img src="assets/img/2.svg"></ion-img></div>
         <div>
           <div class="video">
-            <iframe src="https://www.youtube.com/embed/fpI8Jx65W18" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <video controls>
+              <source src="assets/samplespeech/zivasample.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="100%" >
+            </video>
           </div>
         </div>
       </div>
@@ -272,7 +274,7 @@
 </template>
 
 <script lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSlides,IonInput,IonButton } from '@ionic/vue';
+import { IonContent, IonPage, IonSlides,IonInput,IonButton, IonImg, IonCol, IonCard, IonRow, IonCardTitle, IonCardContent, IonSlide, IonText, IonCardHeader } from '@ionic/vue';
 import { defineComponent } from 'vue';
 import axios from "axios";
 import { email } from '@vee-validate/rules';
@@ -289,6 +291,18 @@ export default defineComponent({
     IonPage,
     IonInput,
     IonButton,
+    IonSlides,
+    IonImg,
+    IonCol,
+    IonCard,
+    IonRow,
+    IonCardTitle,
+    IonCardContent,
+    IonSlide,
+    IonText,
+    IonCardHeader
+
+
   },
   methods:{
     emailSubmit(){

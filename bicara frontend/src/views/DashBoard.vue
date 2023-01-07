@@ -436,10 +436,18 @@
                             <h1>Filler Words Count</h1>
                             <ion-grid>
                                 <ion-row class="row-align-left">
-                                    <ion-col size="2">No</ion-col>
-                                    <ion-col size="3">Date</ion-col>
-                                    <ion-col size="3">Filler Counts</ion-col>
-                                    <ion-col size="4">Filler Words</ion-col>
+                                    <ion-col size="2" class="ion-text-center"
+                                        >No</ion-col
+                                    >
+                                    <ion-col size="3" class="ion-text-center"
+                                        >Date</ion-col
+                                    >
+                                    <ion-col size="3" class="ion-text-center"
+                                        >Filler Counts</ion-col
+                                    >
+                                    <ion-col size="4" class="ion-text-center"
+                                        >Filler Words</ion-col
+                                    >
                                 </ion-row>
                                 <div
                                     v-for="(item, index) in result
@@ -449,27 +457,33 @@
                                     :key="item.email"
                                 >
                                     <ion-row
-                                        class="row-colored row-align-left"
+                                        class="row-colored row-align-left ion-text-center"
                                         :style="
                                             index % 2 == 0
                                                 ? 'background-color: #15cdcb'
                                                 : 'background-color: #5280e2'
                                         "
                                     >
-                                        <ion-col size="2">{{
-                                            index + 1
-                                        }}</ion-col>
-                                        <ion-col size="3">{{
-                                            // new Date(item.date)
-                                            //     .toLocaleDateString("en-EN", {
-                                            //         hour: "2-digit",
-                                            //         minute: "2-digit",
-                                            //         day: "2-digit",
-                                            //         month: "short",
-                                            //     })
-                                            //     .replace(/AM|PM/, "")
-                                            moment(item.date)
-                                        }}</ion-col>
+                                        <ion-col
+                                            size="2"
+                                            class="ion-text-center"
+                                            >{{ index + 1 }}</ion-col
+                                        >
+                                        <ion-col
+                                            size="3"
+                                            class="ion-text-center"
+                                            >{{
+                                                // new Date(item.date)
+                                                //     .toLocaleDateString("en-EN", {
+                                                //         hour: "2-digit",
+                                                //         minute: "2-digit",
+                                                //         day: "2-digit",
+                                                //         month: "short",
+                                                //     })
+                                                //     .replace(/AM|PM/, "")
+                                                moment(item.date)
+                                            }}</ion-col
+                                        >
                                         <ion-col
                                             size="3"
                                             class="ion-text-center"
@@ -485,6 +499,7 @@
                                                     : false
                                             "
                                             size="4"
+                                            class="ion-text-center"
                                             >{{
                                                 // print array of filler words with comma
 
@@ -493,7 +508,12 @@
                                                 ).join(", ")
                                             }}</ion-col
                                         >
-                                        <ion-col v-else size="4">0</ion-col>
+                                        <ion-col
+                                            class="ion-text-center"
+                                            v-else
+                                            size="4"
+                                            >0</ion-col
+                                        >
                                     </ion-row>
                                 </div>
                             </ion-grid>
@@ -586,42 +606,35 @@
                     <h1>Sample Speech</h1>
 
                     <div class="samplespeech">
+                        <ion-modal
+                        id="sample-modal"
+                        ref="modal"
+                        trigger="open-modal-upload"
+                        :is-open="isSampleModalOpen"
+                            >
+                            <div class="video" >
+                                <iframe
+                                src="/assets/samplespeech/yintro.mp4"
+                                title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen
+                            
+                            ></iframe>
+                        </div>
+                    </ion-modal>
                         <ion-card>
-                            <img
-                                alt="Silhouette of mountains"
-                                src="https://d2v9ipibika81v.cloudfront.net/uploads/sites/72/BDS-0690.jpg"
-                            />
+                            <a @click=" setSampleModalOpen(true) ">
+                                <img
+                                    alt="Silhouette of mountains"
+                                    src="/assets/img/yintro.jpg"
+                                />
+                            </a>
                             <ion-card-content>
-                                Ambassador Kim's Remarks on Women in Fintech
+                                Y-Combinator CF Matching Introduction Buenyamin Kartal
                             </ion-card-content>
                         </ion-card>
-                        <ion-card>
-                            <img
-                                alt="Silhouette of mountains"
-                                src="https://d2v9ipibika81v.cloudfront.net/uploads/sites/72/BDS-0690.jpg"
-                            />
-                            <ion-card-content>
-                                Ambassador Kim's Remarks on Women in Fintech
-                            </ion-card-content>
-                        </ion-card>
-                        <ion-card>
-                            <img
-                                alt="Silhouette of mountains"
-                                src="https://d2v9ipibika81v.cloudfront.net/uploads/sites/72/BDS-0690.jpg"
-                            />
-                            <ion-card-content>
-                                Ambassador Kim's Remarks on Women in Fintech
-                            </ion-card-content>
-                        </ion-card>
-                        <ion-card>
-                            <img
-                                alt="Silhouette of mountains"
-                                src="https://d2v9ipibika81v.cloudfront.net/uploads/sites/72/BDS-0690.jpg"
-                            />
-                            <ion-card-content>
-                                Ambassador Kim's Remarks on Women in Fintech
-                            </ion-card-content>
-                        </ion-card>
+                       
                     </div>
                     <ion-footer class="ion-no-border">
                         <ion-toolbar>
@@ -702,6 +715,7 @@ export default defineComponent({
             date: "",
             isModalOpen: false,
             isLoading: false,
+            isSampleModalOpen: false,
             size: 0,
         };
     },
@@ -709,6 +723,9 @@ export default defineComponent({
     methods: {
         setModalOpen(isModalOpen: boolean) {
             this.isModalOpen = isModalOpen;
+        },
+        setSampleModalOpen(isSampleModalOpen: boolean) {
+            this.isSampleModalOpen = isSampleModalOpen;
         },
         moment: function (date: Date) {
             return moment(date).subtract(7, "hours").format("HH:mm / DD MMM");
@@ -816,6 +833,9 @@ export default defineComponent({
             if (e.target != document.querySelector("#example-modal")) {
                 this.setModalOpen(false);
             }
+            if (e.target != document.querySelector("#sample-modal")) {
+                this.setSampleModalOpen(false);
+            }
         });
         //   axios
         //       .get("http://127.0.0.1:5000/signin")
@@ -838,9 +858,7 @@ export default defineComponent({
         axios
             .get("http://127.0.0.1:5000/signin")
             .then((res) => {
-                if (
-                    this.sessionEmail == ""
-                ) {
+                if (this.sessionEmail == "") {
                     window.location.href = "/homepage";
                 } else {
                     console.log("User not logged in");
@@ -884,6 +902,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
+iframe{
+    height: 100%;
+    width: 100%;
+    border: none;
+    position: absolute;
+}
 #container {
     text-align: center;
     position: absolute;
@@ -988,6 +1012,15 @@ ion-popover {
 }
 
 ion-modal#example-modal {
+    --width: 680px;
+    /* --min-width: 250px; */
+    --height: 450px;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    padding-left: 20px;
+    padding-right: 20px;
+}
+ion-modal#sample-modal {
     --width: 680px;
     /* --min-width: 250px; */
     --height: 450px;

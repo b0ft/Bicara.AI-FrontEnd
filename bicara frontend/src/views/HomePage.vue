@@ -296,13 +296,9 @@
                 </div>
                 <div>
                     <div class="video">
-                        <iframe
-                            src="https://youtube.com/embed/ZwFzrJaydo8"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                        ></iframe>
+                      <video controls>
+                        <source src="assets/samplespeech/zivasample.mp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="100%" height="100%" >
+                      </video>
                     </div>
                 </div>
             </div>
