@@ -1,7 +1,0 @@
-{
-  "name": "bicara.ai",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "vue"
-}

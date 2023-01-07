@@ -1,0 +1,7 @@
+{
+    "name": "bicaraai",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "vue"
+}
