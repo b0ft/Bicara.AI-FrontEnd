@@ -368,7 +368,9 @@ export default defineComponent({
             this.isModalOpen = isModalOpen;
         },
         moment: function (date: Date) {
-            return moment(date).subtract(7, "hours").format("HH:mm DD MMM YYYY");
+            return moment(date)
+                .subtract(7, "hours")
+                .format("HH:mm DD MMM YYYY");
             // return moment(date).format("hh:mm / DD MMM");
             // 11:11/12 Nov
         },
@@ -404,10 +406,10 @@ export default defineComponent({
             if (this.size > 110000000) {
                 alert("File size is too large");
                 return;
-            }
-            else{(
-                document.getElementById("upload_button") as HTMLInputElement
-            ).disabled = false;
+            } else {
+                (
+                    document.getElementById("upload_button") as HTMLInputElement
+                ).disabled = false;
             }
         },
         dragover(event: {
@@ -449,7 +451,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post("http://127.0.0.1:5000/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -483,7 +485,7 @@ export default defineComponent({
         });
         console.log(this.FillerWord);
         //   axios
-        //       .get("http://127.0.0.1:5000/signin")
+        //       .get(process.env.VUE_APP_BASE_URL + "/signin")
         //       .then((res) => {
         //           console.log(res);
         //           // if (res.data.status === "success") {
@@ -502,7 +504,7 @@ export default defineComponent({
         this.sessionName = localStorage.getItem("name") ?? "";
 
         axios
-            .get("http://127.0.0.1:5000/result/" + this.sessionEmail)
+            .get(process.env.VUE_APP_BASE_URL + "/result/" + this.sessionEmail)
             .then((response) => {
                 console.log(response);
                 this.result = response.data.result;
@@ -525,12 +527,10 @@ export default defineComponent({
             .catch((error) => {
                 console.log(error);
             });
-            axios
-            .get("http://127.0.0.1:5000/signin")
+        axios
+            .get(process.env.VUE_APP_BASE_URL + "/signin")
             .then((res) => {
-                if (
-                    this.sessionEmail == ""
-                ) {
+                if (this.sessionEmail == "") {
                     window.location.href = "/homepage";
                 } else {
                     console.log("User not logged in");

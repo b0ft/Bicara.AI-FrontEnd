@@ -808,7 +808,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post("http://127.0.0.1:5000/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -838,7 +838,7 @@ export default defineComponent({
             }
         });
         //   axios
-        //       .get("http://127.0.0.1:5000/signin")
+        //       .get(process.env.VUE_APP_BASE_URL + "/signin")
         //       .then((res) => {
         //           console.log(res);
         //           // if (res.data.status === "success") {
@@ -856,7 +856,7 @@ export default defineComponent({
         this.sessionEmail = localStorage.getItem("email") ?? "";
         this.sessionName = localStorage.getItem("name") ?? "";
         axios
-            .get("http://127.0.0.1:5000/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
                     window.location.href = "/homepage";
@@ -868,7 +868,7 @@ export default defineComponent({
                 console.log(err);
             });
         axios
-            .get("http://127.0.0.1:5000/result/" + this.sessionEmail)
+            .get(process.env.VUE_APP_BASE_URL + "/result/" + this.sessionEmail)
             .then((response) => {
                 this.result = response.data.result;
                 this.EyeContactMsg = this.result.slice(-1)[0]["eyeContact"];
@@ -886,7 +886,7 @@ export default defineComponent({
                 console.log(error);
             });
         axios
-            .get("http://127.0.0.1:5000/user/" + this.sessionEmail)
+            .get(process.env.VUE_APP_BASE_URL + "/user/" + this.sessionEmail)
             .then((response) => {
                 console.log(response);
                 let name =

@@ -194,27 +194,26 @@
                                     <h4 class="title">Title</h4>
                                 </ion-col>
                             </ion-row>
-                        <ion-modal
-                        id="example-modal"
-                        ref="modal"
-                        trigger="open-modal-upload"
-                        :is-open="isYoutubeModalOpen"
-                        v-if="currentVideo"
-                    >
-                     <div class="video" >
-                        <iframe
-                            :src="currentVideo"
-                            title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            
-                        ></iframe>
-                     </div>
-                    </ion-modal>
+                            <ion-modal
+                                id="example-modal"
+                                ref="modal"
+                                trigger="open-modal-upload"
+                                :is-open="isYoutubeModalOpen"
+                                v-if="currentVideo"
+                            >
+                                <div class="video">
+                                    <iframe
+                                        :src="currentVideo"
+                                        title="YouTube video player"
+                                        frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen
+                                    ></iframe>
+                                </div>
+                            </ion-modal>
                             <ion-row class="table-history">
                                 <ion-col size="3">
-                                    <a @click=" setYoutubeModalOpen(true, 0) " >
+                                    <a @click="setYoutubeModalOpen(true, 0)">
                                         <ion-img
                                             class="sample-img"
                                             src="assets/img/mqdefault.jpg"
@@ -223,13 +222,14 @@
                                 </ion-col>
                                 <ion-col>
                                     <p class="tablecontent">
-                                        3 Bagian Terpenting Presentasi ( Tips Public speaking)
+                                        3 Bagian Terpenting Presentasi ( Tips
+                                        Public speaking)
                                     </p>
                                 </ion-col>
                             </ion-row>
                             <ion-row class="table-history">
                                 <ion-col size="3">
-                                    <a @click=" setYoutubeModalOpen(true, 1) " >
+                                    <a @click="setYoutubeModalOpen(true, 1)">
                                         <ion-img
                                             class="sample-img"
                                             src="assets/img/mqdefault2.jpg"
@@ -238,13 +238,14 @@
                                 </ion-col>
                                 <ion-col>
                                     <p class="tablecontent">
-                                        Cara Menyusun Presentasi ( Tips Public Speaking )
+                                        Cara Menyusun Presentasi ( Tips Public
+                                        Speaking )
                                     </p>
                                 </ion-col>
                             </ion-row>
                             <ion-row class="table-history">
                                 <ion-col size="3">
-                                    <a @click=" setYoutubeModalOpen(true, 2) " >
+                                    <a @click="setYoutubeModalOpen(true, 2)">
                                         <ion-img
                                             class="sample-img"
                                             src="assets/img/mqdefault3.jpg"
@@ -253,7 +254,8 @@
                                 </ion-col>
                                 <ion-col>
                                     <p class="tablecontent">
-                                        Motivator | Public Speaking | Cerita Dalam Public Speaking - Ongky Hojanto
+                                        Motivator | Public Speaking | Cerita
+                                        Dalam Public Speaking - Ongky Hojanto
                                     </p>
                                 </ion-col>
                             </ion-row>
@@ -314,12 +316,12 @@ export default defineComponent({
             isModalOpen: false,
             isYoutubeModalOpen: false,
             isLoading: false,
-            size:0,
-            youtubeLink:[
+            size: 0,
+            youtubeLink: [
                 "https://www.youtube.com/embed/e_c2_Se5Nlw",
-               "https://www.youtube.com/embed/FVegX84bXUY",
+                "https://www.youtube.com/embed/FVegX84bXUY",
                 "https://www.youtube.com/embed/GE_tXlWcljc",
-        ],
+            ],
             currentVideo: "",
             currentIndex: 0,
         };
@@ -333,12 +335,11 @@ export default defineComponent({
         setModalOpen(isModalOpen: boolean) {
             this.isModalOpen = isModalOpen;
         },
-        setYoutubeModalOpen(isYoutubeModalOpen: boolean, index:number) {
+        setYoutubeModalOpen(isYoutubeModalOpen: boolean, index: number) {
             this.isYoutubeModalOpen = isYoutubeModalOpen;
             this.currentIndex = index;
-            this.currentVideo = this.youtubeLink[index]; 
+            this.currentVideo = this.youtubeLink[index];
             console.log(this.youtubeLink[index], index);
-
         },
         close_side() {
             (
@@ -369,10 +370,10 @@ export default defineComponent({
             if (this.size > 110000000) {
                 alert("File size is too large");
                 return;
-            }
-            else{(
-                document.getElementById("upload_button") as HTMLInputElement
-            ).disabled = false;
+            } else {
+                (
+                    document.getElementById("upload_button") as HTMLInputElement
+                ).disabled = false;
             }
         },
         dragover(event: {
@@ -414,7 +415,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post("http://127.0.0.1:5000/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -440,15 +441,13 @@ export default defineComponent({
         document.addEventListener("click", (e) => {
             if (e.target != document.querySelector("#example-modal")) {
                 this.setModalOpen(false);
-                this.setYoutubeModalOpen(false,this.currentIndex );
+                this.setYoutubeModalOpen(false, this.currentIndex);
             }
         });
         axios
-            .get("http://127.0.0.1:5000/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/signin")
             .then((res) => {
-                if (
-                    this.sessionEmail == ""
-                ) {
+                if (this.sessionEmail == "") {
                     window.location.href = "/homepage";
                 } else {
                     console.log("User not logged in");
@@ -462,13 +461,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-iframe{
+iframe {
     height: 100%;
     width: 100%;
     border: none;
     position: absolute;
 }
-
 
 #container {
     text-align: center;

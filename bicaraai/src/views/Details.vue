@@ -201,7 +201,7 @@
                                 style="width: 50vw; height: 50vh; margin: 0"
                             >
                                 <!-- <source
-                                    src="http://127.0.0.1:5000/static/results/aldysych12_-_Bicara.AI_-_2023-01-03_014845.841990.mp4"
+                                    src=process.env.VUE_APP_BASE_URL + "/static/results/aldysych12_-_Bicara.AI_-_2023-01-03_014845.841990.mp4"
                                 /> -->
                                 <source :src="video" />
                             </video>
@@ -336,7 +336,7 @@ export default defineComponent({
             isModalOpen: false,
             isLoading: false,
             file: "",
-            baseURL: "http://127.0.0.1:5000/static/results/",
+            baseURL: process.env.VUE_APP_BASE_URL + "/static/results/",
             result: {
                 filename: "",
                 eyeContact: 0,
@@ -346,13 +346,14 @@ export default defineComponent({
                 transcript: "",
             },
             size: 0,
-
         };
     },
     computed: {
         addBaseURL() {
             return (
-                "http://127.0.0.1:5000/static/results/" + this.result.filename
+                process.env.VUE_APP_BASE_URL +
+                "/static/results/" +
+                this.result.filename
             );
         },
     },
@@ -394,10 +395,10 @@ export default defineComponent({
             if (this.size > 110000000) {
                 alert("File size is too large");
                 return;
-            }
-            else{(
-                document.getElementById("upload_button") as HTMLInputElement
-            ).disabled = false;
+            } else {
+                (
+                    document.getElementById("upload_button") as HTMLInputElement
+                ).disabled = false;
             }
         },
         dragover(event: {
@@ -439,7 +440,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post("http://127.0.0.1:5000/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -468,7 +469,11 @@ export default defineComponent({
         this.sessionEmail = localStorage.getItem("email") ?? "";
         this.sessionName = localStorage.getItem("name") ?? "";
         await axios
-            .get("http://127.0.0.1:5000/details/" + this.$route.params.id)
+            .get(
+                process.env.VUE_APP_BASE_URL +
+                    "/details/" +
+                    this.$route.params.id
+            )
             .then((response) => {
                 console.log(response.data);
                 this.video = this.baseURL + response.data.filename;
@@ -484,7 +489,7 @@ export default defineComponent({
             }
         });
         axios
-            .get("http://127.0.0.1:5000/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
                     window.location.href = "/homepage";

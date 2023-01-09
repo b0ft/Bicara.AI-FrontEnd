@@ -307,7 +307,7 @@ export default defineComponent({
   methods:{
     emailSubmit(){
       axios
-      .post('http://127.0.0.1:5000/', {
+      .post(process.env.VUE_APP_BASE_URL + '/', {
         email: this.email
       })
       .then((response) => {
