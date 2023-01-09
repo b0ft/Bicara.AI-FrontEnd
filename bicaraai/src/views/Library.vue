@@ -415,7 +415,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post(process.env.VUE_APP_BASE_URL + "/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/api/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -445,7 +445,7 @@ export default defineComponent({
             }
         });
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/api/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
                     window.location.href = "/homepage";

@@ -555,9 +555,9 @@ export default defineComponent({
                 password: this.password,
             };
             console.log(data);
-            console.log(process.env.VUE_APP_BASE_URL + "/signup");
+            console.log(process.env.VUE_APP_BASE_URL + "/api/signup");
             axios
-                .post(process.env.VUE_APP_BASE_URL + "/signup", data)
+                .post(process.env.VUE_APP_BASE_URL + "/api/signup", data)
                 .then((res) => {
                     console.log(res);
                     if (res.data.message == "User created successfully") {
@@ -576,7 +576,7 @@ export default defineComponent({
             session.append("email", this.emailLogin);
             session.append("password", this.passwordLogin);
             axios
-                .post(process.env.VUE_APP_BASE_URL + "/signin", session)
+                .post(process.env.VUE_APP_BASE_URL + "/api/signin", session)
                 .then((res) => {
                     console.log(res.data.message);
                     if (
@@ -604,7 +604,7 @@ export default defineComponent({
             }
         });
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/api/signin")
             .then((res) => {
                 if (localStorage.getItem("email") != null) {
                     window.location.href = "/dashboard";

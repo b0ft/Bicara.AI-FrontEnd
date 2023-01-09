@@ -314,7 +314,7 @@ import {
     IonAlert,
 } from "@ionic/vue";
 import axios from "axios";
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import moment from "moment";
 
 export default defineComponent({
@@ -451,7 +451,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post(process.env.VUE_APP_BASE_URL + "/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/api/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -485,7 +485,7 @@ export default defineComponent({
         });
         console.log(this.FillerWord);
         //   axios
-        //       .get(process.env.VUE_APP_BASE_URL + "/signin")
+        //       .get(process.env.VUE_APP_BASE_URL + "/api/signin")
         //       .then((res) => {
         //           console.log(res);
         //           // if (res.data.status === "success") {
@@ -504,7 +504,11 @@ export default defineComponent({
         this.sessionName = localStorage.getItem("name") ?? "";
 
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/result/" + this.sessionEmail)
+            .get(
+                process.env.VUE_APP_BASE_URL +
+                    "/api/result/" +
+                    this.sessionEmail
+            )
             .then((response) => {
                 console.log(response);
                 this.result = response.data.result;
@@ -528,7 +532,7 @@ export default defineComponent({
                 console.log(error);
             });
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/api/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
                     window.location.href = "/homepage";

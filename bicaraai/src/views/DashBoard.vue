@@ -607,34 +607,33 @@
 
                     <div class="samplespeech">
                         <ion-modal
-                        id="sample-modal"
-                        ref="modal"
-                        trigger="open-modal-upload"
-                        :is-open="isSampleModalOpen"
-                            >
-                            <div class="video" >
+                            id="sample-modal"
+                            ref="modal"
+                            trigger="open-modal-upload"
+                            :is-open="isSampleModalOpen"
+                        >
+                            <div class="video">
                                 <iframe
-                                src="/assets/samplespeech/yintro.mp4"
-                                title="YouTube video player"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen
-                            
-                            ></iframe>
-                        </div>
-                    </ion-modal>
+                                    src="/assets/samplespeech/yintro.mp4"
+                                    title="YouTube video player"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen
+                                ></iframe>
+                            </div>
+                        </ion-modal>
                         <ion-card>
-                            <a @click=" setSampleModalOpen(true) ">
+                            <a @click="setSampleModalOpen(true)">
                                 <img
                                     alt="Silhouette of mountains"
                                     src="/assets/img/yintro.jpg"
                                 />
                             </a>
                             <ion-card-content>
-                                Y-Combinator CF Matching Introduction Buenyamin Kartal
+                                Y-Combinator CF Matching Introduction Buenyamin
+                                Kartal
                             </ion-card-content>
                         </ion-card>
-                       
                     </div>
                     <ion-footer class="ion-no-border">
                         <ion-toolbar>
@@ -764,10 +763,10 @@ export default defineComponent({
             if (this.size > 110000000) {
                 alert("File size is too large");
                 return;
-            }
-            else{(
-                document.getElementById("upload_button") as HTMLInputElement
-            ).disabled = false;
+            } else {
+                (
+                    document.getElementById("upload_button") as HTMLInputElement
+                ).disabled = false;
             }
         },
         dragover(event: {
@@ -808,7 +807,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post(process.env.VUE_APP_BASE_URL + "/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/api/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -838,7 +837,7 @@ export default defineComponent({
             }
         });
         //   axios
-        //       .get(process.env.VUE_APP_BASE_URL + "/signin")
+        //       .get(process.env.VUE_APP_BASE_URL + "/api/signin")
         //       .then((res) => {
         //           console.log(res);
         //           // if (res.data.status === "success") {
@@ -856,7 +855,7 @@ export default defineComponent({
         this.sessionEmail = localStorage.getItem("email") ?? "";
         this.sessionName = localStorage.getItem("name") ?? "";
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/api/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
                     window.location.href = "/homepage";
@@ -868,7 +867,11 @@ export default defineComponent({
                 console.log(err);
             });
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/result/" + this.sessionEmail)
+            .get(
+                process.env.VUE_APP_BASE_URL +
+                    "/api/result/" +
+                    this.sessionEmail
+            )
             .then((response) => {
                 this.result = response.data.result;
                 this.EyeContactMsg = this.result.slice(-1)[0]["eyeContact"];
@@ -886,7 +889,9 @@ export default defineComponent({
                 console.log(error);
             });
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/user/" + this.sessionEmail)
+            .get(
+                process.env.VUE_APP_BASE_URL + "/api/user/" + this.sessionEmail
+            )
             .then((response) => {
                 console.log(response);
                 let name =
@@ -902,7 +907,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
-iframe{
+iframe {
     height: 100%;
     width: 100%;
     border: none;
