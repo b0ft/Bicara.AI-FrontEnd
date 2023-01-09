@@ -471,7 +471,7 @@ export default defineComponent({
         await axios
             .get(
                 process.env.VUE_APP_BASE_URL +
-                    "/details/" +
+                    "/api/details/" +
                     this.$route.params.id
             )
             .then((response) => {
