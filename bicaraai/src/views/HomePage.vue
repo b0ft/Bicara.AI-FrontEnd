@@ -148,6 +148,35 @@
                                         name="Confirm Password"
                                         class="error"
                                     /><br />
+                                    <!-- OTP Verification email -->
+                                    <ion-text>OTP Verification <br/></ion-text>
+                                    <ion-row>
+                                      <ion-col size="8">
+                                        <Field
+                                            v-model="otpInput"
+                                            name="OTP"
+                                            v-slot="{ field }"
+                                            rules="required"
+                                        >
+                                            <ion-input
+                                                v-bind="field"
+                                                name="OTP"
+                                                type="text"
+                                                placeholder="Enter OTP"
+                                            ></ion-input>
+                                      </Field>
+                                      <ErrorMessage
+                                        name="OTP"
+                                        class="error"
+                                      /><br />
+                                        
+                                      </ion-col>
+                                      <ion-col>
+                                        <ion-button @click="sendOTP" color="notify">Send OTP</ion-button>
+                                      </ion-col>
+                                    </ion-row>
+                                    
+                                    
                                     <ion-text class="error">{{
                                         errorSignUp
                                     }}</ion-text
@@ -508,6 +537,8 @@ export default defineComponent({
             isSignUpOpen: false,
             errorLogin: "",
             errorSignUp: "",
+            otp:"secret key",
+            otpInput:""
         };
     },
     setup() {
@@ -541,35 +572,42 @@ export default defineComponent({
             this.isSignUpOpen = isSignUpOpen;
         },
         signUpMethod() {
-            let data = {
-                firstName: capitalize(this.firstName),
-                lastName: capitalize(this.lastName),
-                email: this.email,
-                password: this.password,
-            };
-            console.log(data);
-            console.log(process.env.VUE_APP_BASE_URL + "/api/signup");
-            axios
-                .post(process.env.VUE_APP_BASE_URL + "/api/signup", data)
-                .then((res) => {
-                    console.log(res);
-                    if (res.data.message == "User created successfully") {
-                        alert("User created");
-                        window.location.href = "/homepage";
-                    } else {
-                        this.errorSignUp = res.data.message;
-                    }
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+          if (this.otp == this.otpInput) {
+              let data = {
+                  firstName: capitalize(this.firstName),
+                  lastName: capitalize(this.lastName),
+                  email: this.email,
+                  password: this.password,
+              };
+              console.log(data);
+              console.log(process.env.VUE_APP_BASE_URL + "/signup");
+              axios
+                  .post(process.env.VUE_APP_BASE_URL + "/signup", data)
+                  .then((res) => {
+                      console.log(res);
+                      if (res.data.message == "User created successfully") {
+                          alert("User created");
+                          window.location.href = "/homepage";
+                      } else {
+                          this.errorSignUp = res.data.message;
+                          setTimeout(() => {
+                              this.errorSignUp = "";
+                          }, 3000);
+                      }
+                  })
+                  .catch((err) => {
+                      console.log(err);
+                  });
+          } else {
+              this.errorSignUp = "Wrong OTP";
+          }
         },
         signInMethod() {
             let session = new FormData();
             session.append("email", this.emailLogin);
             session.append("password", this.passwordLogin);
             axios
-                .post(process.env.VUE_APP_BASE_URL + "/api/signin", session)
+                .post(process.env.VUE_APP_BASE_URL + "/signin", session)
                 .then((res) => {
                     console.log(res.data.message);
                     if (
@@ -588,6 +626,26 @@ export default defineComponent({
                     console.log(err);
                 });
         },
+        sendOTP(){
+            let data = {
+                email: this.email,
+            };
+            console.log("OTP")
+            axios
+                .post(process.env.VUE_APP_BASE_URL + "/sendotp", data)
+                .then((res) => {
+                    console.log(res);
+                    if (res.data.message == "OTP sent successfully") {
+                        alert("OTP sent");
+                        this.otp = res.data.otp;
+                    } else {
+                        this.errorSignUp = res.data.message;
+                    }
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
     },
     mounted() {
         document.addEventListener("click", (e) => {
@@ -597,7 +655,7 @@ export default defineComponent({
             }
         });
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/api/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/signin")
             .then((res) => {
                 if (localStorage.getItem("email") != null) {
                     window.location.href = "/dashboard";
@@ -616,9 +674,7 @@ export default defineComponent({
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=Krona+One&display=swap');
   .error {
     color: red;
-    font-size: 1.8vh;
     font-family: 'Inter', sans-serif;
-    padding-left: 1vh;
   }
   @media (min-width: 992px) {
     .bicara-ai-top {
@@ -753,6 +809,7 @@ export default defineComponent({
         padding-right: 2.5vh;
         padding-top: 2vh;
         height: 75vh;
+        overflow-y: scroll;
     }
 
     .sign-up ion-content ion-card ion-button {
