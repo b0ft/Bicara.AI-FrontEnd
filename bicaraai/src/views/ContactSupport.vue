@@ -787,14 +787,12 @@ ion-item {
 }
 .aside .lastsidebar {
     position: absolute;
-    bottom: 100px;
+    bottom: 90px;
     border-top: 1px solid #8c8c8c;
     padding: 10px 25px;
     width: 100%;
 }
-.lastsidebar {
-    bottom: 3px !important;
-}
+
 
 .aside a span {
     margin-top: 4px;
@@ -1078,6 +1076,9 @@ ion-textarea.custom-textarea {
         font-family: "Krona One", sans-serif;
         font-weight: 400;
         font-size: 24px;
+    }
+    .lastsidebar {
+        bottom: 3px !important;
     }
     .contact1 {
         padding: 12px !important;
