@@ -731,7 +731,7 @@ export default defineComponent({
             this.isSampleModalOpen = isSampleModalOpen;
         },
         moment: function (date: Date) {
-            return moment(date).subtract(7, "hours").format("HH:mm / DD MMM");
+            return moment(date).format("HH:mm / DD MMM");
         },
         logoutMethod() {
             localStorage.removeItem("email");
@@ -1899,19 +1899,19 @@ ion-footer ion-toolbar ion-title {
     }
 
     .intro-mobile-2 {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3f54d1;
-    padding: 10px 20px;
-    padding-left: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    width: 100%;
-    margin: 0px;
-    z-index: 200;
-  }
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3f54d1;
+        padding: 10px 20px;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+        margin: 0px;
+        z-index: 200;
+    }
     .intro-mobile-2 h1 {
         margin-top: 2px;
         color: #ffffff;

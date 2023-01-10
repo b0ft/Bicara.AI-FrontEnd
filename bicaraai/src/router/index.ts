@@ -12,10 +12,6 @@ import FrequentlyAsked from "../views/FrequentlyAskedQuestions.vue";
 const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
-        component: LandingPage,
-    },
-    {
-        path: "/homepage",
         component: HomePage,
     },
     {

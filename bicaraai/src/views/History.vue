@@ -247,8 +247,8 @@
                                     :routerLink="`/details/${item._id}`"
                                 >
                                     <ion-col>
-                                        <video width="190" height="110"  >
-                                            <source 
+                                        <video width="190" height="110">
+                                            <source
                                                 :src="baseURL + item.filename"
                                                 type="video/mp4"
                                             />
@@ -375,9 +375,7 @@ export default defineComponent({
             this.isModalOpen = isModalOpen;
         },
         moment: function (date: Date) {
-            return moment(date)
-                .subtract(7, "hours")
-                .format("HH:mm DD MMM YYYY");
+            return moment(date).format("HH:mm DD MMM YYYY");
             // return moment(date).format("hh:mm / DD MMM");
             // 11:11/12 Nov
         },
@@ -961,7 +959,6 @@ ion-grid {
     text-align: center;
 }
 
-
 @media (max-width: 992px) {
     .content {
         width: 576px;
@@ -970,24 +967,23 @@ ion-grid {
     .upload-nav {
         display: none;
     }
-    
 }
 
 @media (max-width: 576px) {
     .intro-mobile-2 {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3f54d1;
-    padding: 10px 20px;
-    padding-left: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    width: 100%;
-    margin: 0px;
-    z-index: 200;
-  }
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3f54d1;
+        padding: 10px 20px;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+        margin: 0px;
+        z-index: 200;
+    }
     .intro-mobile-2 h1 {
         margin-top: 2px;
         color: #ffffff;
