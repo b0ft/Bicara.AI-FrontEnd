@@ -194,174 +194,140 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Content Details -->
-                <div class="content">
-                    <!--Video & transcript-->
-                    <div class="left-side">
-                        <div class="upper-left">
-                            <!-- <img
-                                alt="Ambassador Kim"
-                                src="https://d2v9ipibika81v.cloudfront.net/uploads/sites/72/BDS-0690.jpg"
-                            /> -->
-                            <video
-                                controls="controls"
-                                preload="preload"
-                                v-if="video"
-                                style="width: 50vw; height: 50vh; margin: 0"
+                <div class="aside w3-animate-left"
+                    id="aside"
+                    style="position: fixed">
+                    <div class="firstsidebar">
+                        <div
+                            style="
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                            "
+                        >
+                            <h1 slot="start">
+                                Hi, {{ sessionName.split(" ")[0] }}!
+                            </h1>
+                            <button
+                                slot="end"
+                                v-on:click="close_side()"
+                                id="close"
                             >
-                                <!-- <source
-                                    src=process.env.VUE_APP_BASE_URL + "/static/results/aldysych12_-_Bicara.AI_-_2023-01-03_014845.841990.mp4"
-                                /> -->
-                                <source :src="video" />
-                            </video>
-                            <ion-text style="margin: 1.5vh; font-size: 2.5vh">
-                                {{ moment(result.date) }}
-                            </ion-text>
+                                <span class="material-symbols-rounded close">
+                                    close
+                                </span>
+                            </button>
                         </div>
-                        <h3>Transcript</h3>
-                        <div class="bottom-left">
-                            <ion-card>
-                                <ion-card-content>
-                                    
-                                    {{ result.transcript }}
-                                </ion-card-content>
-                            </ion-card>
-                        </div>
+                        <h4>What would you like to do today?</h4>
+                        <a href="/dashboard">
+                            <span class="material-symbols-outlined">home</span>
+                            <p>Home</p>
+                        </a>
+                        <a href="/history">
+                            <span class="material-symbols-outlined">
+                                movie
+                            </span>
+                            <p>History</p>
+                        </a>
+                        <a href="/library">
+                            <span class="material-symbols-outlined">
+                                video_library</span
+                            >
+                            <p>Library</p>
+                        </a>
+                        <a href="/faqs">
+                            <span class="material-symbols-outlined">
+                                help_center
+                            </span>
+                            <p>FAQ</p>
+                        </a>
+                        <a
+                            href="#"
+                            class="onlymobile"
+                            @click.prevent="setModalOpen(true)"
+                        >
+                            <span class="material-symbols-outlined">
+                                video_call
+                            </span>
+                            <p>Upload Video</p>
+                        </a>
+                        <!-- <a class="onlymobile" href="#">
+                        <span class="material-symbols-outlined "> account_circle </span>
+                        <p>Account</p>
+                        </a> -->
                     </div>
-
-                    <!--Result-->
-                    <div class="right-side for-desktop">
-                        <h3>Result</h3>
-                        <div>
-                            <ion-card>
-                                <ion-card-title>
-                                    <ion-row>
-                                        <ion-col>Eye Contact</ion-col>
-                                        <ion-col
-                                            class="ion-text-right blue-text"
-                                            blue-text
-                                            >{{ result.eyeContact }}</ion-col
-                                        >
-                                    </ion-row>
-                                </ion-card-title>
-                            </ion-card>
-                            <ion-card>
-                                <ion-card-title>
-                                    <ion-row>
-                                        <ion-col>Pacing</ion-col>
-                                        <ion-col
-                                            class="ion-text-right blue-text"
-                                            >{{
-                                                result.pacing
-                                            }}
-                                            word/min</ion-col
-                                        >
-                                    </ion-row>
-                                </ion-card-title>
-                            </ion-card>
-                            <ion-card>
-                                <ion-card-title>
-                                    <ion-row>
-                                        <ion-col>Filler words</ion-col>
-                                        <ion-col
-                                            class="ion-text-right blue-text"
-                                            >{{
-                                                result.filler
-                                            }}
-                                            fillers</ion-col
-                                        >
-                                    </ion-row>
-                                </ion-card-title>
-                                <ion-card-content>
-                                    <ion-row
-                                        v-for="(
-                                            value, name, index
-                                        ) in result.fillerWords"
-                                        :key="index"
-                                        >{{ name }} ({{ value }})</ion-row
-                                    >
-                                    <!-- <ion-row>Ah (2)</ion-row>
-                                    <ion-row>Hm (1)</ion-row> -->
-                                </ion-card-content>
-                            </ion-card>
-                        </div>
-                    </div>
-                    <div class="for-mobile">
-                        <div class="right-side">
-                            <h3>Result</h3>
-                            <div>
-                                <ion-row>
-                                    <ion-col size="4">
-                                        <ion-card> 
-                                            <ion-card-title>
-                                                <ion-row>
-                                                    <ion-col>Eye Contact</ion-col>
-                                                </ion-row>
-                                                <ion-row>
-                                                    <ion-col
-                                                        class="blue-text"
-                                                        blue-text
-                                                        >{{ result.eyeContact }}</ion-col
-                                                    >
-                                                </ion-row>
-                                            </ion-card-title>
-                                        </ion-card>
-                                    </ion-col>
-                                    <ion-col size="4">
-                                        <ion-card>
-                                            <ion-card-title>
-                                                <ion-row>
-                                                    <ion-col>Pacing</ion-col>
-                                                </ion-row>
-                                                <ion-row>
-                                                    <ion-col
-                                                        class="blue-text"
-                                                        >{{
-                                                            result.pacing
-                                                        }}
-                                                        word/min</ion-col
-                                                    >
-                                                </ion-row>
-                                            </ion-card-title>
-                                        </ion-card>
-                                    </ion-col>
-                                    <ion-col size="4">
-                                        <ion-card>
-                                            <ion-card-title>
-                                                <ion-row>
-                                                    <ion-col>Filler words</ion-col>
-                                                </ion-row>
-                                                <ion-row>
-                                                    <ion-col
-                                                        class="blue-text"
-                                                        >{{
-                                                            result.filler
-                                                        }}
-                                                        fillers</ion-col
-                                                    >
-                                                </ion-row>
-                                            </ion-card-title>
-                                            <ion-card-content>
-                                                <ion-row
-                                                    v-for="(
-                                                        value, name, index
-                                                    ) in result.fillerWords"
-                                                    :key="index"
-                                                    >{{ name }} ({{ value }})</ion-row
-                                                >
-                                                <!-- <ion-row>Ah (2)</ion-row>
-                                                <ion-row>Hm (1)</ion-row> -->
-                                            </ion-card-content>
-                                        </ion-card>
-                                    </ion-col>
-                                </ion-row>
-                            </div>
-                        </div>
+                    <div class="lastsidebar">
+                        <a href="/contactsupport">
+                            <span class="material-symbols-outlined">
+                                group
+                            </span>
+                            <p>Contact Support</p>
+                        </a>
+                        <a href="" @click.prevent="logoutMethod">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                            <p>Sign Out</p>
+                        </a>
                     </div>
                 </div>
             </div>
+                <!-- Content -->
+                
+            <div class="title c1" >
+                <h3>Frequently Asked Questions</h3>
+            </div>
+            <div class="questions">                
+                <ion-accordion-group expand="inset">
+                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                        <ion-item slot="header">
+                            <ion-label><h1>Question 1?</h1>
+                            </ion-label>
+                        </ion-item>
+                        <div class="ion-padding" slot="content">
+                            <ion-text class="ion-text-center">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
+                            </ion-text>    
+                        </div>
+                    </ion-accordion>
+                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                        <ion-item slot="header">
+                            <ion-label><h1>Question 2?</h1>
+                            </ion-label>
+                        </ion-item>
+                        <div class="ion-padding" slot="content">
+                            <ion-text class="ion-text-center">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
+                            </ion-text>    
+                        </div>
+                    </ion-accordion>
+                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                        <ion-item slot="header">
+                            <ion-label><h1>Question 3?</h1>
+                            </ion-label>
+                        </ion-item>
+                        <div class="ion-padding" slot="content">
+                            <ion-text class="ion-text-center">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
+                            </ion-text>    
+                        </div>
+                    </ion-accordion>
+                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                        <ion-item slot="header">
+                            <ion-label><h1>Question 4?</h1>
+                            </ion-label>
+                        </ion-item>
+                        <div class="ion-padding" slot="content">
+                            <ion-text class="ion-text-center">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
+                            </ion-text>    
+                        </div>
+                    </ion-accordion>
+                </ion-accordion-group>
+            </div>
+
         </ion-content>
+        
     </ion-page>
 </template>
 
@@ -376,21 +342,20 @@ import {
     IonModal,
     IonAvatar,
     IonImg,
-    IonText,
-    IonCard,
-    IonCardTitle,
-    IonCardContent,
-    IonCol,
-    IonRow,
     IonList,
     IonAlert,
+    IonAccordionGroup,
+    IonAccordion,
+    IonText,
+    IonItem,
 } from "@ionic/vue";
 import axios from "axios";
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import moment from "moment";
+import { caretDown } from 'ionicons/icons';
 
 export default defineComponent({
-    name: "HistoryDetails",
+    name: "FrequentlyAsked",
     components: {
         IonPopover,
         IonButton,
@@ -401,14 +366,15 @@ export default defineComponent({
         IonModal,
         IonAvatar,
         IonImg,
-        IonText,
-        IonCard,
-        IonCardTitle,
-        IonCardContent,
-        IonCol,
-        IonRow,
         IonList,
         IonAlert,
+        IonAccordionGroup,
+        IonAccordion,
+        IonText,
+        IonItem,
+    },
+    setup() {
+      return { caretDown }
     },
     data() {
         return {
@@ -419,7 +385,7 @@ export default defineComponent({
             isModalOpen: false,
             isLoading: false,
             file: "",
-            baseURL: process.env.VUE_APP_BASE_URL + "/static/results/",
+            baseURL: "http://127.0.0.1:5000/static/results/",
             result: {
                 filename: "",
                 eyeContact: 0,
@@ -429,14 +395,13 @@ export default defineComponent({
                 transcript: "",
             },
             size: 0,
+
         };
     },
     computed: {
         addBaseURL() {
             return (
-                process.env.VUE_APP_BASE_URL +
-                "/static/results/" +
-                this.result.filename
+                "http://127.0.0.1:5000/static/results/" + this.result.filename
             );
         },
     },
@@ -478,10 +443,10 @@ export default defineComponent({
             if (this.size > 110000000) {
                 alert("File size is too large");
                 return;
-            } else {
-                (
-                    document.getElementById("upload_button") as HTMLInputElement
-                ).disabled = false;
+            }
+            else{(
+                document.getElementById("upload_button") as HTMLInputElement
+            ).disabled = false;
             }
         },
         dragover(event: {
@@ -523,7 +488,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post(process.env.VUE_APP_BASE_URL + "/api/upload", formData, {
+                .post("http://127.0.0.1:5000/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -552,11 +517,7 @@ export default defineComponent({
         this.sessionEmail = localStorage.getItem("email") ?? "";
         this.sessionName = localStorage.getItem("name") ?? "";
         await axios
-            .get(
-                process.env.VUE_APP_BASE_URL +
-                    "/api/details/" +
-                    this.$route.params.id
-            )
+            .get("http://127.0.0.1:5000/details/" + this.$route.params.id)
             .then((response) => {
                 console.log(response.data);
                 this.video = this.baseURL + response.data.filename;
@@ -572,7 +533,7 @@ export default defineComponent({
             }
         });
         axios
-            .get(process.env.VUE_APP_BASE_URL + "/api/signin")
+            .get("http://127.0.0.1:5000/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
                     window.location.href = "/homepage";
@@ -868,7 +829,7 @@ ion-item {
     margin-right: 10px;
 }
 
-.aside a:nth-child(4) {
+.aside a:nth-child(6) {
     outline: 0;
     appearance: none;
     text-decoration: none;
@@ -929,7 +890,7 @@ ion-item {
     color: black;
 }
 
-.aside a:nth-child(4):hover {
+.aside a:nth-child(6):hover {
     background-color: #3f54d1;
     color: #ffffff;
 }
@@ -939,131 +900,75 @@ ion-item {
     padding: 0;
 }
 
-/* CSS Content Dashboard */
-
-.content {
+/* CSS Content */
+.title {
     width: 100%;
     margin: 0 auto;
-    padding-top: 10px;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    transition: all 0.2 s;
+    display: flex;
+    border-bottom-color: #a8b9be;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+.title h3 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    padding-left: 50px;
+}
+
+/* Questions */
+.questions {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2vw;
     transition: all 0.2 s;
     display: flex;
 }
 
-.content h1 {
-    font-size: 30px;
-    margin-left: 8px;
-}
-
-.left-side {
-    width: 50%;
-    height: 100%;
-    border-right-style: solid;
-    border-right-width: 2px;
-    border-right-color: #a7afb1;
-}
-
-.upper-left {
-    border-bottom: #a7afb1;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    margin: auto;
-    display: grid;
-    justify-content: center;
-}
-
-.upper-left img {
-    width: 35vw;
-    margin-bottom: 2vh;
-    border-radius: 10px;
-}
-
-.upper-left ion-text {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 600;
-    font-size: 3vh;
-}
-
-.bottom-left {
-    display: grid;
-    justify-content: center;
-    margin-left: auto;
-}
-
-h3 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.bottom-left {
-    border-top-color: #a7afb1;
-    border-top-width: 2px;
-    border-top-style: solid;
-}
-
-.bottom-left ion-card {
-    width: 45vw;
-    background-color: #3f54d10d;
-}
-
-.bottom-left ion-card-content {
-    color: black;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 400;
-}
-
-.right-side {
-    height: 85vh;
-    width: 50%;
-    margin-left: 50%;
-    position: fixed;
-}
-
-.right-side div {
-    border-top-color: #a7afb1;
-    border-top-width: 2px;
-    border-top-style: solid;
+ion-accordion-group {
+    padding-left: 35px;
+    padding-right: 35px;
     width: 100%;
-    margin: 10px;
 }
 
-.right-side ion-card {
-    background-color: white;
+ion-accordion {
     border-radius: 10px;
-    box-shadow: #000000;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    padding: 5px;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 2rem;
 }
 
-.right-side ion-card-title {
-    color: black;
+ion-accordion h1 {
+    --font-size: large;
     font-weight: 600;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
-.blue-text {
-    color: #3f54d1;
-}
-
-.right-side ion-card-content {
-    border-top-width: 1px;
-    border-top-color: #a7afb1;
-    border-top-style: solid;
-    font-size: 16px;
-    margin-left: 15px;
-    margin-right: 15px;
-    color: black;
+ion-accordion ion-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
+    font-size: large;
 }
 
-for-mobile {
-    display: none;
+ion-accordion.accordion-collapsed ion-item[slot="header"] {
+    --background: #5280E2;
+    --color: white;
+}
+ion-accordion.accordion-collapsing ion-item[slot="header"] {
+    --background: #5280E2;
+    --color: white;
+}
+ion-accordion.accordion-expanded ion-item[slot="header"] {
+    --background: #eaf1f3;
+    --color: #5280e2;
+}
+ion-accordion.accordion-expanding ion-item[slot="header"] {
+    --background: #eaf1f3;
+    --color: #5280e2;
+}
+
+div[slot="content"] {
+    background: #eaf1f3;
 }
 
 @media (max-width: 992px) {
@@ -1071,10 +976,6 @@ for-mobile {
         width: 576px;
     } */
     .upload-nav {
-        display: none;
-    }
-
-    for-mobile {
         display: none;
     }
 }
@@ -1096,31 +997,56 @@ for-mobile {
     #asidee {
         display: none;
     }
-
-    .content {
-        margin-top: 80px;
-        width: 97vw;
-        display: grid;
+        /* CSS Content */
+    .title {
+        padding-top: 50px;
+        width: 100%;
+        margin: 0 auto;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        transition: all 0.2 s;
+        display: flex;
+        border-bottom-color: #a8b9be;
+        border-bottom-width: 2px;
+        border-bottom-style: solid;
     }
 
-    .content h1 {
-        font-size: 25px;
+    .title h3 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 600;
+        padding-left: 20px;
     }
 
-    .content .title-rat {
-        margin-top: 0px;
-        color: #ffffff;
+    /* Questions */
+    .questions {
+        width: 100%;
+        margin: 0 auto;
+        padding: 2vw;
+        transition: all 0.2 s;
+        display: flex;
     }
 
-    .intro-mobile {
-        z-index: 0;
-        width: 90%;
-        margin: 20px 20px 25px;
-        font-family: "Segoe UI";
-        font-size: 24px;
-        display: block;
-        color: #ffffff;
+    ion-accordion-group {
+        padding-left: 5px;
+        padding-right: 5px;
+        width: 100%;
     }
+
+    ion-accordion {
+        border-radius: 10px;
+        margin-bottom: 2rem;
+    }
+
+    ion-accordion h1 {
+        --font-size: medium;
+        font-weight: 600;
+    }
+
+    ion-accordion ion-text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    }   
 
     .intro-mobile-2 {
     position: fixed;
@@ -1135,77 +1061,16 @@ for-mobile {
     width: 100%;
     margin: 0px;
     z-index: 200;
-    }
-
-    .left-side {
-        width: 100%;
-        border-right: none;
-        height: 80vh;
-    }
-
-    .bottom-left ion-card {
-        margin-top: -3px;
-        max-height: 180px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        width: 98%;
-        overflow-y: scroll;
-    }
-
-    .bottom-left ion-card-content {
-        text-align: justify;
-    }
-    
-    .right-side {
-        margin-top: 50px;
-        margin-left: auto;
-        width: 100%;
-        position: relative;
-        border-top-color: #a7afb1;
-        border-top-style: solid;
-        border-top-width: 2px;
-        height: 30px;
-    }
-    .right-side h3 {
-        margin-left: 0px;
-    }
-    .right-side div {
-        margin-left:0px;
-    }
-    .right-side ion-card {
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: #000000;
-        width: 95%;
-        height: 135px;
-        margin-left: 5px;
-        margin-right: 5px;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-    .right-side ion-card-title {
-        color: black;
-        font-size: 18px;
-        font-weight: 600;
-        padding: 5px;
-        text-align: center;
-        word-wrap: normal;
-    }
-    .right-side ion-card-content {
-        border-top-width: 1px;
-        border-top-color: #a7afb1;
-        border-top-style: solid;
-        font-size: 12px;
-        margin-left: 10px;
-        margin-right: 10px;
-        color: black;
+  }
+    .intro-mobile-2 h1 {
+        margin-top: 2px;
+        color: #ffffff;
+        font-family: "Krona One", sans-serif;
         font-weight: 400;
+        font-size: 24px;
     }
-
-    .for-desktop {
-        display: none;
-    }
-    .for-mobile {
-        display: initial;
+    .c1{
+        margin-top: 30px;
     }
 }
 </style>

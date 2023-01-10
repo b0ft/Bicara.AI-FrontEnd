@@ -106,7 +106,11 @@
             <!--Mobile -->
             <div class="background-mobile"></div>
             <div class="intro-mobile-2">
-                <h1 slot="start" style="margin: 10px 3px">Bicara.ai</h1>
+                <ion-img
+                    src="assets/img/bicara-logo.svg"
+                    style="height: 70px"
+                    slot="start"
+                ></ion-img>
                 <button slot="end" v-on:click="open_side()" id="menu">
                     <span class="material-symbols-rounded menu"> menu </span>
                 </button>
@@ -156,7 +160,7 @@
                             >
                             <p>Library</p>
                         </a>
-                        <a href="#">
+                        <a href="/faqs">
                             <span class="material-symbols-outlined">
                                 help_center
                             </span>
@@ -178,7 +182,7 @@
             </a> -->
                     </div>
                     <div class="lastsidebar">
-                        <a href="#">
+                        <a href="/contactsupport">
                             <span class="material-symbols-outlined">
                                 group
                             </span>
@@ -1895,17 +1899,19 @@ ion-footer ion-toolbar ion-title {
     }
 
     .intro-mobile-2 {
-        position: fixed;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #3f54d1;
-        padding: 10px 20px;
-        padding-bottom: 0px;
-        width: 100%;
-        margin: 0px;
-        z-index: 200;
-    }
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3f54d1;
+    padding: 10px 20px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+    margin: 0px;
+    z-index: 200;
+  }
     .intro-mobile-2 h1 {
         margin-top: 2px;
         color: #ffffff;

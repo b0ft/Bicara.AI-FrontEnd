@@ -103,6 +103,17 @@
         </ion-header>
 
         <ion-content :fullscreen="true">
+            <div class="background-mobile"></div>
+      <div class="intro-mobile-2" >
+        <ion-img
+                    src="assets/img/bicara-logo.svg"
+                    style="height: 70px"
+                    slot="start"
+                ></ion-img>
+        <button slot="end" v-on:click="open_side()" id="menu">
+          <span class="material-symbols-rounded menu"> menu </span>
+        </button>
+      </div>
             <div class="dashboard">
                 <!-- Sidebar Dashboard-->
                 <div
@@ -148,7 +159,7 @@
                             >
                             <p>Library</p>
                         </a>
-                        <a href="#">
+                        <a href="/faqs">
                             <span class="material-symbols-outlined">
                                 help_center
                             </span>
@@ -166,7 +177,7 @@
                         </a>
                     </div>
                     <div class="lastsidebar">
-                        <a href="#">
+                        <a href="/contactsupport">
                             <span class="material-symbols-outlined">
                                 group
                             </span>
@@ -182,12 +193,12 @@
                 </div>
 
                 <!-- Content Library -->
-                <div class="content">
+                <div class="content c1" >
                     <h1>Speech Recomendation</h1>
                     <ion-card class="history-video">
                         <ion-grid>
                             <ion-row>
-                                <ion-col size="3">
+                                <ion-col size="4" size-lg="3">
                                     <h4 class="title">Bicara.ai Partnership</h4>
                                 </ion-col>
                                 <ion-col>
@@ -212,7 +223,7 @@
                                 </div>
                             </ion-modal>
                             <ion-row class="table-history">
-                                <ion-col size="3">
+                                <ion-col size="4" size-lg="3">
                                     <a @click="setYoutubeModalOpen(true, 0)">
                                         <ion-img
                                             class="sample-img"
@@ -228,7 +239,7 @@
                                 </ion-col>
                             </ion-row>
                             <ion-row class="table-history">
-                                <ion-col size="3">
+                                <ion-col size="4" size-lg="3">
                                     <a @click="setYoutubeModalOpen(true, 1)">
                                         <ion-img
                                             class="sample-img"
@@ -244,7 +255,7 @@
                                 </ion-col>
                             </ion-row>
                             <ion-row class="table-history">
-                                <ion-col size="3">
+                                <ion-col size="4" size-lg="3">
                                     <a @click="setYoutubeModalOpen(true, 2)">
                                         <ion-img
                                             class="sample-img"
@@ -819,7 +830,10 @@ ion-item {
     padding-top: 10px;
     transition: all 0.2 s;
 }
-
+.intro-mobile,
+.intro-mobile-2 {
+  display: none;
+}
 .content h1 {
     font-size: 30px;
     margin: 20px 8px;
@@ -878,11 +892,14 @@ ion-grid {
 }
 .table-history {
     border-top: 1px solid #8c8c8c;
-    height: 130px;
+    height: fit-content;
+    align-items: center;
 }
 
 .sample-img {
     margin: -5px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 @media (max-width: 992px) {
@@ -911,7 +928,9 @@ ion-grid {
         --padding-top: 10px;
         margin-right: 20px;
     }
-
+    .tablecontent{
+        font-size: 15px!important;
+    }
     .dashboard {
         z-index: 0;
     }
@@ -942,5 +961,32 @@ ion-grid {
         padding: 10px;
         font-size: 18px;
     }
+    .intro-mobile-2 {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3f54d1;
+    padding: 10px 20px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 100%;
+    margin: 0px;
+    z-index: 200;
+  }
+  .intro-mobile-2 h1 {
+    margin-top: 2px;
+    color: #ffffff;
+    font-family: "Krona One", sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+  }
+  .lastsidebar{
+    bottom: 3px !important;
+  }
+  .c1{
+    margin-top: 70px;
+  }
 }
 </style>
