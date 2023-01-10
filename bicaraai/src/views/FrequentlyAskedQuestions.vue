@@ -194,9 +194,11 @@
                         </a>
                     </div>
                 </div>
-                <div class="aside w3-animate-left"
+                <div
+                    class="aside w3-animate-left"
                     id="aside"
-                    style="position: fixed">
+                    style="position: fixed"
+                >
                     <div class="firstsidebar">
                         <div
                             style="
@@ -272,62 +274,140 @@
                     </div>
                 </div>
             </div>
-                <!-- Content -->
-                
-            <div class="title c1" >
+            <!-- Content -->
+
+            <div class="title c1">
                 <h3>Frequently Asked Questions</h3>
             </div>
-            <div class="questions">                
+            <div class="questions">
                 <ion-accordion-group expand="inset">
-                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                    <ion-accordion
+                        :toggle-icon="caretDown"
+                        toggle-icon-slot="end"
+                    >
                         <ion-item slot="header">
-                            <ion-label><h1>Question 1?</h1>
-                            </ion-label>
+                            <ion-label><h1>Question 1?</h1> </ion-label>
                         </ion-item>
                         <div class="ion-padding" slot="content">
                             <ion-text class="ion-text-center">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
-                            </ion-text>    
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Quisque id leo eros. Etiam
+                                euismod libero eu magna volutpat, nec viverra
+                                tortor lacinia. Suspendisse tempor mollis
+                                eleifend. Praesent rutrum iaculis nisi a
+                                fermentum. Sed ultrices orci in neque facilisis
+                                vulputate vitae convallis justo. Curabitur
+                                ullamcorper a tortor eu sodales. Vivamus tempus
+                                elit euismod libero semper, vitae commodo eros
+                                posuere. Etiam dictum, lorem in sagittis
+                                elementum, massa lectus tristique ligula, sed
+                                sollicitudin eros nisi ut orci. Cras eget odio
+                                est. Sed posuere tortor odio, eget mollis risus
+                                varius vitae. Duis urna turpis, ultrices quis
+                                velit sit amet, pharetra dignissim metus. Duis
+                                blandit a sapien in blandit. Aenean varius
+                                imperdiet congue. Donec nunc sem, pretium eu
+                                massa vel, dictum lacinia dolor. Curabitur et
+                                neque turpis.
+                            </ion-text>
                         </div>
                     </ion-accordion>
-                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                    <ion-accordion
+                        :toggle-icon="caretDown"
+                        toggle-icon-slot="end"
+                    >
                         <ion-item slot="header">
-                            <ion-label><h1>Question 2?</h1>
-                            </ion-label>
+                            <ion-label><h1>Question 2?</h1> </ion-label>
                         </ion-item>
                         <div class="ion-padding" slot="content">
                             <ion-text class="ion-text-center">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
-                            </ion-text>    
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Quisque id leo eros. Etiam
+                                euismod libero eu magna volutpat, nec viverra
+                                tortor lacinia. Suspendisse tempor mollis
+                                eleifend. Praesent rutrum iaculis nisi a
+                                fermentum. Sed ultrices orci in neque facilisis
+                                vulputate vitae convallis justo. Curabitur
+                                ullamcorper a tortor eu sodales. Vivamus tempus
+                                elit euismod libero semper, vitae commodo eros
+                                posuere. Etiam dictum, lorem in sagittis
+                                elementum, massa lectus tristique ligula, sed
+                                sollicitudin eros nisi ut orci. Cras eget odio
+                                est. Sed posuere tortor odio, eget mollis risus
+                                varius vitae. Duis urna turpis, ultrices quis
+                                velit sit amet, pharetra dignissim metus. Duis
+                                blandit a sapien in blandit. Aenean varius
+                                imperdiet congue. Donec nunc sem, pretium eu
+                                massa vel, dictum lacinia dolor. Curabitur et
+                                neque turpis.
+                            </ion-text>
                         </div>
                     </ion-accordion>
-                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                    <ion-accordion
+                        :toggle-icon="caretDown"
+                        toggle-icon-slot="end"
+                    >
                         <ion-item slot="header">
-                            <ion-label><h1>Question 3?</h1>
-                            </ion-label>
+                            <ion-label><h1>Question 3?</h1> </ion-label>
                         </ion-item>
                         <div class="ion-padding" slot="content">
                             <ion-text class="ion-text-center">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
-                            </ion-text>    
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Quisque id leo eros. Etiam
+                                euismod libero eu magna volutpat, nec viverra
+                                tortor lacinia. Suspendisse tempor mollis
+                                eleifend. Praesent rutrum iaculis nisi a
+                                fermentum. Sed ultrices orci in neque facilisis
+                                vulputate vitae convallis justo. Curabitur
+                                ullamcorper a tortor eu sodales. Vivamus tempus
+                                elit euismod libero semper, vitae commodo eros
+                                posuere. Etiam dictum, lorem in sagittis
+                                elementum, massa lectus tristique ligula, sed
+                                sollicitudin eros nisi ut orci. Cras eget odio
+                                est. Sed posuere tortor odio, eget mollis risus
+                                varius vitae. Duis urna turpis, ultrices quis
+                                velit sit amet, pharetra dignissim metus. Duis
+                                blandit a sapien in blandit. Aenean varius
+                                imperdiet congue. Donec nunc sem, pretium eu
+                                massa vel, dictum lacinia dolor. Curabitur et
+                                neque turpis.
+                            </ion-text>
                         </div>
                     </ion-accordion>
-                    <ion-accordion :toggle-icon="caretDown" toggle-icon-slot="end">
+                    <ion-accordion
+                        :toggle-icon="caretDown"
+                        toggle-icon-slot="end"
+                    >
                         <ion-item slot="header">
-                            <ion-label><h1>Question 4?</h1>
-                            </ion-label>
+                            <ion-label><h1>Question 4?</h1> </ion-label>
                         </ion-item>
                         <div class="ion-padding" slot="content">
                             <ion-text class="ion-text-center">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id leo eros. Etiam euismod libero eu magna volutpat, nec viverra tortor lacinia. Suspendisse tempor mollis eleifend. Praesent rutrum iaculis nisi a fermentum. Sed ultrices orci in neque facilisis vulputate vitae convallis justo. Curabitur ullamcorper a tortor eu sodales. Vivamus tempus elit euismod libero semper, vitae commodo eros posuere. Etiam dictum, lorem in sagittis elementum, massa lectus tristique ligula, sed sollicitudin eros nisi ut orci. Cras eget odio est. Sed posuere tortor odio, eget mollis risus varius vitae. Duis urna turpis, ultrices quis velit sit amet, pharetra dignissim metus. Duis blandit a sapien in blandit. Aenean varius imperdiet congue. Donec nunc sem, pretium eu massa vel, dictum lacinia dolor. Curabitur et neque turpis.
-                            </ion-text>    
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Quisque id leo eros. Etiam
+                                euismod libero eu magna volutpat, nec viverra
+                                tortor lacinia. Suspendisse tempor mollis
+                                eleifend. Praesent rutrum iaculis nisi a
+                                fermentum. Sed ultrices orci in neque facilisis
+                                vulputate vitae convallis justo. Curabitur
+                                ullamcorper a tortor eu sodales. Vivamus tempus
+                                elit euismod libero semper, vitae commodo eros
+                                posuere. Etiam dictum, lorem in sagittis
+                                elementum, massa lectus tristique ligula, sed
+                                sollicitudin eros nisi ut orci. Cras eget odio
+                                est. Sed posuere tortor odio, eget mollis risus
+                                varius vitae. Duis urna turpis, ultrices quis
+                                velit sit amet, pharetra dignissim metus. Duis
+                                blandit a sapien in blandit. Aenean varius
+                                imperdiet congue. Donec nunc sem, pretium eu
+                                massa vel, dictum lacinia dolor. Curabitur et
+                                neque turpis.
+                            </ion-text>
                         </div>
                     </ion-accordion>
                 </ion-accordion-group>
             </div>
-
         </ion-content>
-        
     </ion-page>
 </template>
 
@@ -348,11 +428,12 @@ import {
     IonAccordion,
     IonText,
     IonItem,
+    IonLabel,
 } from "@ionic/vue";
 import axios from "axios";
 import { defineComponent, ref } from "vue";
 import moment from "moment";
-import { caretDown } from 'ionicons/icons';
+import { caretDown } from "ionicons/icons";
 
 export default defineComponent({
     name: "FrequentlyAsked",
@@ -372,9 +453,10 @@ export default defineComponent({
         IonAccordion,
         IonText,
         IonItem,
+        IonLabel,
     },
     setup() {
-      return { caretDown }
+        return { caretDown };
     },
     data() {
         return {
@@ -385,25 +467,8 @@ export default defineComponent({
             isModalOpen: false,
             isLoading: false,
             file: "",
-            baseURL: "http://127.0.0.1:5000/static/results/",
-            result: {
-                filename: "",
-                eyeContact: 0,
-                filler: 0,
-                fillerWords: {},
-                pacing: 0,
-                transcript: "",
-            },
             size: 0,
-
         };
-    },
-    computed: {
-        addBaseURL() {
-            return (
-                "http://127.0.0.1:5000/static/results/" + this.result.filename
-            );
-        },
     },
     methods: {
         logoutMethod() {
@@ -443,10 +508,10 @@ export default defineComponent({
             if (this.size > 110000000) {
                 alert("File size is too large");
                 return;
-            }
-            else{(
-                document.getElementById("upload_button") as HTMLInputElement
-            ).disabled = false;
+            } else {
+                (
+                    document.getElementById("upload_button") as HTMLInputElement
+                ).disabled = false;
             }
         },
         dragover(event: {
@@ -488,7 +553,7 @@ export default defineComponent({
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
             axios
-                .post("http://127.0.0.1:5000/upload", formData, {
+                .post(process.env.VUE_APP_BASE_URL + "/api/upload", formData, {
                     headers: {
                         "Content-Type": "multipart/form-data",
                     },
@@ -513,19 +578,9 @@ export default defineComponent({
                 .format("dddd, DD MMM YYYY");
         },
     },
-    async mounted() {
+    mounted() {
         this.sessionEmail = localStorage.getItem("email") ?? "";
         this.sessionName = localStorage.getItem("name") ?? "";
-        await axios
-            .get("http://127.0.0.1:5000/details/" + this.$route.params.id)
-            .then((response) => {
-                console.log(response.data);
-                this.video = this.baseURL + response.data.filename;
-                this.result = response.data;
-            })
-            .catch((error) => {
-                console.log(error);
-            });
 
         document.addEventListener("click", (e) => {
             if (e.target != document.querySelector("#example-modal")) {
@@ -533,7 +588,7 @@ export default defineComponent({
             }
         });
         axios
-            .get("http://127.0.0.1:5000/signin")
+            .get(process.env.VUE_APP_BASE_URL + "/api/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
                     window.location.href = "/homepage";
@@ -914,7 +969,7 @@ ion-item {
 }
 
 .title h3 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
     padding-left: 50px;
 }
@@ -945,17 +1000,17 @@ ion-accordion h1 {
 }
 
 ion-accordion ion-text {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
     font-size: large;
 }
 
 ion-accordion.accordion-collapsed ion-item[slot="header"] {
-    --background: #5280E2;
+    --background: #5280e2;
     --color: white;
 }
 ion-accordion.accordion-collapsing ion-item[slot="header"] {
-    --background: #5280E2;
+    --background: #5280e2;
     --color: white;
 }
 ion-accordion.accordion-expanded ion-item[slot="header"] {
@@ -997,7 +1052,7 @@ div[slot="content"] {
     #asidee {
         display: none;
     }
-        /* CSS Content */
+    /* CSS Content */
     .title {
         padding-top: 50px;
         width: 100%;
@@ -1012,7 +1067,7 @@ div[slot="content"] {
     }
 
     .title h3 {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-weight: 600;
         padding-left: 20px;
     }
@@ -1043,25 +1098,25 @@ div[slot="content"] {
     }
 
     ion-accordion ion-text {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    }   
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+    }
 
     .intro-mobile-2 {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #3f54d1;
-    padding: 10px 20px;
-    padding-left: 0px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    width: 100%;
-    margin: 0px;
-    z-index: 200;
-  }
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3f54d1;
+        padding: 10px 20px;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+        margin: 0px;
+        z-index: 200;
+    }
     .intro-mobile-2 h1 {
         margin-top: 2px;
         color: #ffffff;
@@ -1069,7 +1124,7 @@ div[slot="content"] {
         font-weight: 400;
         font-size: 24px;
     }
-    .c1{
+    .c1 {
         margin-top: 30px;
     }
 }
