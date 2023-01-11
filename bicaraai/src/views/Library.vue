@@ -341,7 +341,7 @@ export default defineComponent({
         logoutMethod() {
             localStorage.removeItem("email");
             localStorage.removeItem("name");
-            this.$router.push("/homepage");
+            window.location.href = "/";
         },
         setModalOpen(isModalOpen: boolean) {
             this.isModalOpen = isModalOpen;

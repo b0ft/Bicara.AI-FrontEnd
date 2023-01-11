@@ -318,7 +318,7 @@ export default defineComponent({
         logoutMethod() {
             localStorage.removeItem("email");
             localStorage.removeItem("name");
-            this.$router.push("/homepage");
+            window.location.href = "/";
         },
         setModalOpen(isModalOpen: boolean) {
             this.isModalOpen = isModalOpen;
@@ -449,7 +449,7 @@ export default defineComponent({
             .get(process.env.VUE_APP_BASE_URL + "/api/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
-                    window.location.href = "/homepage";
+                    window.location.href = "/";
                 } else {
                     console.log("User not logged in");
                 }
