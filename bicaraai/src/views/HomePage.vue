@@ -723,7 +723,7 @@ export default defineComponent({
                         console.log(res);
                         if (res.data.message == "User created successfully") {
                             alert("User created");
-                            window.location.href = "/homepage";
+                            window.location.href = "/";
                         } else {
                             this.errorSignUp = res.data.message;
                             setTimeout(() => {

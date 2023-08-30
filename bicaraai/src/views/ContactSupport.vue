@@ -318,7 +318,7 @@ export default defineComponent({
         logoutMethod() {
             localStorage.removeItem("email");
             localStorage.removeItem("name");
-            this.$router.push("/homepage");
+            window.location.href = "/";
         },
         setModalOpen(isModalOpen: boolean) {
             this.isModalOpen = isModalOpen;
@@ -396,6 +396,7 @@ export default defineComponent({
             let formData = new FormData();
             formData.append("file", this.file);
             formData.append("email", this.sessionEmail);
+            this.isLoading = true;
             axios
                 .post(process.env.VUE_APP_BASE_URL + "/api/upload", formData, {
                     headers: {
@@ -404,17 +405,15 @@ export default defineComponent({
                 })
                 .then((response) => {
                     console.log(response);
+                    this.isLoading = false;
+                    window.location.reload();
                 })
                 .catch((error) => {
                     console.log(error);
                 });
-            this.isLoading = true;
             (
                 document.getElementById("upload_button") as HTMLInputElement
             ).disabled = true;
-            setTimeout(() => {
-                window.location.reload();
-            }, 2000);
         },
         sendEmail() {
             let data = {
@@ -449,7 +448,7 @@ export default defineComponent({
             .get(process.env.VUE_APP_BASE_URL + "/api/signin")
             .then((res) => {
                 if (this.sessionEmail == "") {
-                    window.location.href = "/homepage";
+                    window.location.href = "/";
                 } else {
                     console.log("User not logged in");
                 }
