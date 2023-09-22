@@ -349,7 +349,7 @@ export default defineComponent({
             console.log(e.target.files[0]);
             this.file = e.target.files[0];
             this.size = e.target.files[0].size;
-            if (this.size > 110000000) {
+            if (this.size > 1100000000) {
                 alert("File size is too large");
                 return;
             } else {

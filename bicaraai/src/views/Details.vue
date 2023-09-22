@@ -1,81 +1,3 @@
-Abien Affar
-abienaffar
-Invisible
-
-yuu — 07/01/2023 8:09 PM
-https://docs.google.com/document/d/1rI4qI3AmZfH-yicpB0s_KVtfv9TtpoIxU0nkgbwOl5I/edit?usp=sharing
-Google Docs
-GEMASTIK RPL Bicara.ai
-Susunan Proposal Pengembangan Perangkat Lunak a) Judul/Nama Perangkat Lunak; b) Latar Belakang Ide Perangkat Lunak; c) Tujuan dan Manfaat Dikembangkannya Perangkat Lunak; d) Batasan Perangkat Lunak yang Dikembangkan; e) Metodologi Pengembangan Perangkat Lunak; f) Analisis Kebutuhan dan De...
-Image
-yuu — 07/01/2023 8:22 PM
-https://docs.google.com/document/d/1T8BybKO6iyq9Kp7PhXaWooM43xkw6q87MQRiE0tdG0U/edit
-Google Docs
-proposal lidm
-➢ Cover (Lampiran 1) ➢ Lembar Pengesahan (Lampiran 2) ➢ Abstrak ➢ Latar belakang (memuat problematika yang telah terjadi dalam proses pencapaian kompetensi dengan didasarkan pada fakta yang terdokumentasikan oleh tim pengusul maupun tersedia pada penelitian lain yang terpublikasikan) data EF (E...
-Image
-Boft — 07/01/2023 8:41 PM
-Image
-Abien Affar — 07/08/2023 7:21 PM
-Sementara ini untuk preventif kegagalan deployment aplikasi web. Deploy webnya sebagai android app https://ionicframework.com/docs/developing/android. Nanti bahasa di proposal, bisa disesuaikan.
-yuu — 07/08/2023 7:22 PM
-Image
-yuu — 07/08/2023 7:30 PM
-Image
-yuu — 07/08/2023 7:38 PM
-https://www.ef.com/wwen/epi/regions/asia/indonesia/
-EF EPI 2022 – EF English Proficiency Index – Indonesia
-Image
-yuu — 07/08/2023 8:08 PM
-Image
-yuu — 07/08/2023 8:17 PM
-live recording
-chatgpt, untuk mengoreksi kekurangan(?)
-Boft — 07/08/2023 8:18 PM
-https://marvelapp.com/19ai631j
-Marvel
-bicara-ai
-Marvel Prototype for bicara-ai
-Image
-Abien Affar — 07/08/2023 8:24 PM
-live recording
-chatgpt (yang melakukan gpt terhadap result message video pengguna untuk mencari solusinya misal pacing is too fast jadi ntar kek cari solusi  cara mengatasi ngomong yang terlalu cepat)
-flask run
-yuu — 07/08/2023 8:29 PM
-https://youtu.be/ztrenODVtv0'
-YouTube
-Bicara AI
-LIDM 2023 - Divisi Inovasi Teknologi Pendidikan- 001037 - BicaraAI ...
-Image
-Boft — 07/08/2023 8:31 PM
-https://www.youtube.com/watch?v=zmVU9xHTyiE&ab_channel=AldySyachranie
-YouTube
-Aldy Syachranie
-LIVE Demo Bicara.AI Sprint 7
-Image
-yuu — 07/08/2023 8:42 PM
-Image
-yuu — Today at 10:16 AM
-<template>
-    <ion-page>
-        <ion-header :translucent="true">
-            <ion-toolbar>
-                <button slot="start" v-on:click="open_side()" id="menu">
-                    <span class="material-symbols-rounded menu"> menu </span>
-Expand
-message.txt
-39 KB
-<template>
-    <ion-page>
-        <ion-header :translucent="true">
-            <ion-toolbar>
-                <button slot="start" v-on:click="open_side()" id="menu">
-                    <span class="material-symbols-rounded menu"> menu </span>
-... (14 KB left)
-Expand
-message.txt
-64 KB
-﻿
 <template>
     <ion-page>
         <ion-header :translucent="true">
@@ -372,7 +294,7 @@ message.txt
                             <div class="review2">
                                 <ion-card>
                                     <ion-card-content>
-                                        Great effort in delivering your speech! However, it seems that the pacing is a bit fast, with a rate of 205 words per minute. It is important to maintain a moderate pace to ensure clarity and audience comprehension. Try slowing down a bit, allowing your words to resonate and giving listeners time to process the information effectively. 
+                                        {{result.review}} 
                                     </ion-card-content>
                                 </ion-card>
                             </div>
@@ -453,7 +375,7 @@ message.txt
                                 <div class="review2" style="margin-bottom: 100px;">
                                 <ion-card>
                                     <ion-card-content>
-                                        Great effort in delivering your speech! However, it seems that the pacing is a bit fast, with a rate of 205 words per minute. It is important to maintain a moderate pace to ensure clarity and audience comprehension. Try slowing down a bit, allowing your words to resonate and giving listeners time to process the information effectively. 
+                                        {{result.review}} 
                                     </ion-card-content>
                                 </ion-card>
                             </div>
@@ -530,6 +452,7 @@ export default defineComponent({
                 fillerWords: {},
                 pacing: 0,
                 transcript: "",
+                review: "",
             },
             size: 0,
         };

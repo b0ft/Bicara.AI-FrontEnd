@@ -276,7 +276,7 @@
                                                 {{ EyeContactMsg }}
                                             </p>
                                         </div>
-                                        <div style="background-color: #3295BE">
+                                        <div style="background-color: #15cdcb">
                                             <p class="detail-title">
                                                 Filler Word
                                             </p>
@@ -287,7 +287,7 @@
                                                 >
                                             </p>
                                         </div>
-                                        <div style="background-color: #2cb6b4">
+                                        <div style="background-color: #4fe0b5">
                                             <p class="detail-title">Pacing</p>
                                             <p class="detail-persen">
                                                 {{ Pacing }}
@@ -464,8 +464,8 @@
                                         class="row-colored row-align-left ion-text-center"
                                         :style="
                                             index % 2 == 0
-                                                ? 'background-color: #5280e2'
-                                                : 'background-color: #2cb6b4'
+                                                ? 'background-color: #15cdcb'
+                                                : 'background-color: #5280e2'
                                         "
                                     >
                                         <ion-col
@@ -1541,7 +1541,7 @@ ion-col p {
     background: #5280e2;
 }
 .row-colored:nth-child(odd) {
-    background: #2cb6b4;
+    background: #15cdcb;
 }
 
 .grafik {
